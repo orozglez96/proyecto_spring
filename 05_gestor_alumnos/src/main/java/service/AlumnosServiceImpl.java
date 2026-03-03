@@ -21,6 +21,10 @@ public class AlumnosServiceImpl implements AlumnosService {
 		}
 		return false;
 	}
+	@Override
+	public void eliminar(int idAlumno) {
+		alumnosRepository.eliminar(idAlumno);
+	}
 
 	@Override
 	public List<Alumno> alumnosCurso(String curso) {
@@ -31,5 +35,7 @@ public class AlumnosServiceImpl implements AlumnosService {
 	public List<String> cursos() {
 		return alumnosRepository.findAllCursos();
 	}
+
+	
 
 }

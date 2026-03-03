@@ -11,15 +11,16 @@
 			<select name="curso">
 				<option th:each="c:${cursos}" th:text="${c}" th:value="${c}"></option>
 			</select>
-			<input type="submit" value= Ver alumnos>
+			<input type="submit" value="ver">
 		</form>
 		<br><br>
 		<table border="">
-			<tr><th>Nombre</th><th>Email</th><th>Nota</th></tr>
-			<tr th:each="a${alumnos}">
+			<tr><th>Nombre</th><th>Email</th><th>Nota</th><th>Eliminar</th></tr>
+			<tr th:each="a : ${alumnos}">
 				<td th:text="${a.nombre}"></td>
 				<td th:text="${a.email}"></td>
 				<td th:text="${a.nota}"></td>
+				<td><a th:href="@{/eliminar(idAlumno=${a.idAlumno})}">x</a></td>
 			</tr>
 		</table>
 		<br>

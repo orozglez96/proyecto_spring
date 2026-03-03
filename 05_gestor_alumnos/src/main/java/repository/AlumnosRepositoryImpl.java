@@ -18,6 +18,14 @@ public class AlumnosRepositoryImpl implements AlumnosRepository {
 	public void save(Alumno alumno) {
 		eManager.persist(alumno);
 	}
+	@Transactional
+	@Override
+	public void eliminar(int idAlumno) {
+		Alumno a=eManager.find(Alumno.class, idAlumno);
+		if(a!=null) {
+			eManager.remove(a);
+		}
+	}
 
 	@Override
 	public List<Alumno> findByCurso(String curso) {
@@ -43,5 +51,7 @@ public class AlumnosRepositoryImpl implements AlumnosRepository {
 		TypedQuery<String> query=eManager.createQuery(jpql,String.class);
 		return query.getResultList();
 	}
+
+	
 
 }
